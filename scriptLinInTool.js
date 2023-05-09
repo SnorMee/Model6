@@ -87,7 +87,7 @@ $.ajax({
 function drawCanvas(data){
   canvas.innerHTML = ""
 // Sizing - independent
-let tw = 1500
+let tw = 1000
 let numX = 4
 // Sizing - DEPENDENT
 let numY = 12/numX
