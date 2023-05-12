@@ -87,7 +87,7 @@ $.ajax({
 function drawCanvas(data){
   canvas.innerHTML = ""
 // Sizing - independent
-let tw = 1000
+let tw = 1500
 let numX = 4
 // Sizing - DEPENDENT
 let numY = 12/numX
@@ -146,9 +146,9 @@ for (let i = 0; i < Object.keys(data.children).length; i++) {
     // Color
   
     var myColor = d3.scaleLinear()
-    .range(['#ffffff','#7f0000'])
+    .range(['#ffffff','#c92a2a'])
     .domain([0,100]);
-    var color = myColor(String(data['children'][i+1]['value']) /maxVal *100)
+    var color = myColor(String(data['children'][i+1]['numT']) /maxVal *100)
 
 
 
@@ -166,7 +166,11 @@ for (let i = 0; i < Object.keys(data.children).length; i++) {
     //console.log(i+1, ni, Ai)
     let AiH = Math.sqrt(Ai)
     if (ni > 0){
-      var innerRect = paper.rect(x+(w-AiH)/2,y+(h-AiH)/2,AiH,AiH)
+      if (N > 1){
+        var innerRect = paper.rect(x+(w-AiH)/2,y+(h-AiH)/2,AiH,AiH)
+      }else{
+        var innerRect = paper.rect(x,y,w,h)
+      }
     }else{
       var innerRect = paper.rect(x,y,AiH,AiH)
     }
